@@ -1,0 +1,324 @@
+import reflex as rx
+
+# Paleta de colores
+COLORS = {
+    "primary": "#5E2AB7",
+    "secondary": "#F5F3FF",
+    "accent": "#FF7D33",
+    "text": "#333333",
+    "light": "#FFFFFF",
+}
+
+def navbar() -> rx.Component:
+    return rx.box(
+        rx.hstack(
+            rx.heading("Riley", color=COLORS["primary"], size="lg"),
+            rx.spacer(),
+            rx.hstack(
+                rx.link("Features & Pricing", href="#features", color=COLORS["text"]),
+                rx.link("Blog", href="#blog", color=COLORS["text"]),
+                rx.link("Support", href="#support", color=COLORS["text"]),
+                spacing="2em",
+            ),
+            rx.spacer(),
+            rx.button("Get started", bg=COLORS["primary"], color=COLORS["light"]),
+            width="100%",
+            padding="1em 2em",
+        ),
+        bg=COLORS["light"],
+        position="sticky",
+        top="0",
+        z_index="1000",
+        box_shadow="sm",
+    )
+
+def hero() -> rx.Component:
+    return rx.center(
+        rx.vstack(
+            rx.heading(
+                "Your smart parenting companion",
+                size="2xl",
+                text_align="center",
+                color=COLORS["primary"],
+            ),
+            rx.text(
+                "From newborn to toddler and beyond: Riley is the only AI-powered assistant that grows with your family.",
+                text_align="center",
+                font_size="1.2em",
+            ),
+            rx.button(
+                "Get started",
+                bg=COLORS["primary"],
+                color=COLORS["light"],
+                size="lg",
+                margin_top="1em",
+            ),
+            rx.hstack(
+                rx.text("Available on:"),
+                rx.image(src="/appstore.png", height="2em"),
+                rx.image(src="/playstore.png", height="2em"),
+                spacing="1em",
+                justify="center",
+            ),
+            spacing="1.5em",
+            padding_y="4em",
+        ),
+        bg=COLORS["secondary"],
+        width="100%",
+    )
+
+def features() -> rx.Component:
+    return rx.vstack(
+        rx.heading(
+            "The Smartest All-in-One Parenting App",
+            size="xl",
+            text_align="center",
+            margin_bottom="2em",
+        ),
+        rx.text(
+            "Smarter parenting starts with Riley. Track, predict, and get expert-backed answers, all in one place.",
+            text_align="center",
+            width="70%",
+            margin_bottom="3em",
+        ),
+        rx.grid(
+            rx.box(
+                rx.vstack(
+                    rx.heading("Personalized Parenting, Powered by You", size="md"),
+                    rx.text(
+                        "Riley's thorough onboarding allows it to tailor answers to your baby and family, so you can skip the 3am panic Googling."
+                    ),
+                    align_items="start",
+                    spacing="1em",
+                ),
+                padding="2em",
+                border_radius="lg",
+                bg=COLORS["light"],
+                box_shadow="md",
+            ),
+            rx.box(
+                rx.vstack(
+                    rx.heading("Your Parenting Toolbox, All In One Place", size="md"),
+                    rx.text(
+                        "Juggling 5 different apps for one baby? With Riley you can manage sleep, feeding, growth, development and more - all in one place."
+                    ),
+                    align_items="start",
+                    spacing="1em",
+                ),
+                padding="2em",
+                border_radius="lg",
+                bg=COLORS["light"],
+                box_shadow="md",
+            ),
+            rx.box(
+                rx.vstack(
+                    rx.heading("24/7 Support, Any Time, Anywhere", size="md"),
+                    rx.text(
+                        "Riley delivers instant, expert answers to all of your parenting questions, day or night."
+                    ),
+                    align_items="start",
+                    spacing="1em",
+                ),
+                padding="2em",
+                border_radius="lg",
+                bg=COLORS["light"],
+                box_shadow="md",
+            ),
+            columns="3",
+            spacing="2em",
+            width="90%",
+            margin_bottom="4em",
+        ),
+        id="features",
+        width="100%",
+        padding_y="4em",
+        bg=COLORS["light"],
+    )
+
+def testimonials() -> rx.Component:
+    return rx.vstack(
+        rx.heading("Why Parents Love Riley", size="xl", text_align="center"),
+        rx.text(
+            "Join a community of parents like you who get it all done with Riley",
+            text_align="center",
+            margin_bottom="3em",
+        ),
+        rx.grid(
+            rx.box(
+                rx.vstack(
+                    rx.text(
+                        '"Riley feels like a personalized parent companion that will grow with my child. It offers tailored advice, activities, and resources that make navigating the challenges of parenthood so much easier."'
+                    ),
+                    rx.hstack(
+                        rx.text("Holly W.", font_weight="bold"),
+                        rx.text("Mom of two (11m & 4y)"),
+                        spacing="1em",
+                    ),
+                    spacing="1.5em",
+                    align_items="start",
+                ),
+                padding="2em",
+                border_radius="lg",
+                bg=COLORS["secondary"],
+            ),
+            rx.box(
+                rx.vstack(
+                    rx.text(
+                        '"Riley is such an amazing tool for managing our family life. From activity ideas, tracking feedings, and answers backed by data - Riley just plugs into my life as a parent."'
+                    ),
+                    rx.hstack(
+                        rx.text("Alex G.", font_weight="bold"),
+                        rx.text("Mom of two (11m & 4y)"),
+                        spacing="1em",
+                    ),
+                    spacing="1.5em",
+                    align_items="start",
+                ),
+                padding="2em",
+                border_radius="lg",
+                bg=COLORS["secondary"],
+            ),
+            rx.box(
+                rx.vstack(
+                    rx.text(
+                        '"Riley is like having a best friend with a PhD in child development who remembers what\'s important to me and helps me effectively parent my kiddo."'
+                    ),
+                    rx.hstack(
+                        rx.text("Sebastian M.", font_weight="bold"),
+                        rx.text("Father of one (2y)"),
+                        spacing="1em",
+                    ),
+                    spacing="1.5em",
+                    align_items="start",
+                ),
+                padding="2em",
+                border_radius="lg",
+                bg=COLORS["secondary"],
+            ),
+            columns="3",
+            spacing="2em",
+            width="90%",
+        ),
+        width="100%",
+        padding_y="4em",
+        bg=COLORS["light"],
+    )
+
+def faq() -> rx.Component:
+    return rx.vstack(
+        rx.heading("FAQ", size="xl", text_align="center"),
+        rx.text(
+            "Great answers are kind of our thing! Here are some answers to frequently asked questions to help you get started.",
+            text_align="center",
+            margin_bottom="3em",
+        ),
+        rx.accordion(
+            rx.accordion_item(
+                rx.accordion_button(
+                    rx.heading(
+                        "How do I know I can trust Riley?", size="sm", color=COLORS["text"]
+                    ),
+                    rx.accordion_icon(),
+                ),
+                rx.accordion_panel(
+                    rx.text(
+                        "Riley's advice is grounded in the latest pediatric research and expert knowledge. We work closely with pediatricians, child development specialists, and parenting experts to ensure our information is accurate and up-to-date."
+                    )
+                ),
+            ),
+            rx.accordion_item(
+                rx.accordion_button(
+                    rx.heading(
+                        "How will you keep my family's data private?",
+                        size="sm",
+                        color=COLORS["text"],
+                    ),
+                    rx.accordion_icon(),
+                ),
+                rx.accordion_panel(
+                    rx.text(
+                        "We take privacy very seriously. All your data is encrypted and we never share it with third parties without your explicit consent."
+                    )
+                ),
+            ),
+            rx.accordion_item(
+                rx.accordion_button(
+                    rx.heading(
+                        "Do you offer a free trial?", size="sm", color=COLORS["text"]
+                    ),
+                    rx.accordion_icon(),
+                ),
+                rx.accordion_panel(
+                    rx.text(
+                        "Yes! We offer a 14-day free trial so you can experience all the benefits of Riley before committing."
+                    )
+                ),
+            ),
+            width="70%",
+            allow_multiple=True,
+        ),
+        width="100%",
+        padding_y="4em",
+        bg=COLORS["secondary"],
+        id="faq",
+    )
+
+def footer() -> rx.Component:
+    return rx.box(
+        rx.grid(
+            rx.vstack(
+                rx.heading("Riley", size="md", color=COLORS["primary"]),
+                rx.text("Your smart parenting companion"),
+                align_items="start",
+            ),
+            rx.vstack(
+                rx.heading("Product", size="sm", color=COLORS["text"]),
+                rx.link("Why Riley", href="#"),
+                rx.link("Pricing", href="#"),
+                rx.link("Blog", href="#"),
+                align_items="start",
+                spacing="0.5em",
+            ),
+            rx.vstack(
+                rx.heading("Legal", size="sm", color=COLORS["text"]),
+                rx.link("Privacy Policy", href="#"),
+                rx.link("Terms of Service", href="#"),
+                rx.link("Cookie Policy", href="#"),
+                align_items="start",
+                spacing="0.5em",
+            ),
+            rx.vstack(
+                rx.heading("Support", size="sm", color=COLORS["text"]),
+                rx.link("Contact Us", href="#"),
+                rx.link("FAQ", href="#faq"),
+                rx.link("Help Center", href="#"),
+                align_items="start",
+                spacing="0.5em",
+            ),
+            columns="4",
+            width="90%",
+            spacing="2em",
+            padding="2em",
+        ),
+        rx.divider(),
+        rx.center(
+            rx.text("© 2023 Riley. All rights reserved."),
+            padding="1em",
+        ),
+        bg=COLORS["light"],
+        width="100%",
+    )
+
+def index() -> rx.Component:
+    return rx.box(
+        navbar(),
+        hero(),
+        features(),
+        testimonials(),
+        faq(),
+        footer(),
+    )
+
+app = rx.App()
+app.add_page(index, route="/")
+app.compile()
